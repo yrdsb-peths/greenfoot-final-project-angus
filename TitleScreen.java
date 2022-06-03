@@ -37,8 +37,8 @@ public class TitleScreen extends World
     
      private void prepare()
     {
-        Snake s = new Snake();
-        addObject(elephant,524,52);
+        Snake snake = new Snake();
+        addObject(snake,524,52);
         snake.setLocation(300,343);
         Label label = new Label("Press <space> to Start", 40);
         addObject(label,254,124);
