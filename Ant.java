@@ -14,15 +14,15 @@ public class Ant extends Actor
      */
     public void act()
     {
-        if(Greenfoot.isKeyDown("left")){
+        if(Greenfoot.isKeyDown("a")){
             setLocation(getX() - 5, getY()); 
         }
-        if(Greenfoot.isKeyDown("right")){
+        if(Greenfoot.isKeyDown("d")){
             setLocation(getX() + 5, getY()); 
         }
-        if(Greenfoot.isKeyDown("up"))
+        if(Greenfoot.isKeyDown("w"))
             setLocation(getX(), getY() - 5); 
-        if(Greenfoot.isKeyDown("down"))
+        if(Greenfoot.isKeyDown("s"))
             setLocation(getX(), getY() + 5); 
     }
     
