@@ -1,5 +1,6 @@
 #Greenfoot project file
 class.Apple.image=apple1.png
+class.MyWorld.image=sand.jpg
 class.Snake.image=snake2.png
 dependency1.from=MyWorld
 dependency1.to=Snake
@@ -62,5 +63,5 @@ target4.y=0
 version=3.0.0
 width=813
 world.lastInstantiated=MyWorld
-xPosition=551
-yPosition=182
+xPosition=585
+yPosition=181
