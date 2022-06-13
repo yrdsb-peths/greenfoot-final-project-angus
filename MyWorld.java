@@ -25,11 +25,7 @@ public class MyWorld extends World
         Snake s = new Snake();
         addObject(s, 310, 350);
         
-        Ant a = new Ant();
-        addObject(a, 300, 340);
-        
         addObject(scoreLabel, 50,50);
-        
         
         spawnApple();
     }
