@@ -36,7 +36,7 @@ public class MyWorld extends World
 
         // Hier werden zwei Objekte der Welt hinzugefügt, welche den Hintergrund in Form eines Tores, eines Stadions und eines Himmels darstellen.
         addObject(new Himmel(), 350, 400);
-        addObject(new Stadion(), 350, 0);
+        addObject(new Stadium(), 350, 0);
         addObject(new Tor(), 350, 150);
 
         // Hier wird festgelegt, dass die Hintergrundmusik durchgehend gespielt werden soll.

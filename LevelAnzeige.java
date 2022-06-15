@@ -31,34 +31,6 @@ public class LevelAnzeige extends Actor
         {
             setImage("Level_3.png");
         }
-        else if (level == 4)
-        {
-            setImage("Level_4.png");
-        }
-        else if (level == 5)
-        {
-            setImage("Level_5.png");
-        }
-        else if (level == 6)
-        {
-            setImage("Level_6.png");
-        }
-        else if (level == 7)
-        {
-            setImage("Level_7.png");
-        }
-        else if (level == 8)
-        {
-            setImage("Level_8.png");
-        }
-        else if (level == 9)
-        {
-            setImage("Level_9.png");
-        }
-        else if (level == 10)
-        {
-            setImage("Level_10.png");
-        }
     }
     
 }
