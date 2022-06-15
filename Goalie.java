@@ -12,7 +12,10 @@ public class Goalie extends Actor
      * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Goalie()
+    {   
     
+    }
     public void act()
     {
         if(Greenfoot.isKeyDown("left")){
