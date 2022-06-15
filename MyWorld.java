@@ -47,6 +47,14 @@ public class MyWorld extends World
         addObject(apple, x, y);
     }
     
+    public void spawnSoccerball()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        Soccerball ball = new Soccerball();
+        addObject(ball, x, y);
+    }
+    
     public void increaseScore()
     {
         score++;
