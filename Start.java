@@ -7,7 +7,7 @@ public class Start extends World
     public Start()
     {    
         super(700, 465, 1);
-        setBackground(new GreenfootImage("Start.jpg"));
+        setBackground(new GreenfootImage("Start.jpeg"));
         addObject(button1, 100, 300);
     }
     
