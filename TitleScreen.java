@@ -48,5 +48,7 @@ public class TitleScreen extends World
         addObject(label,254,124);
         label.setLocation(391,264);
         label.setLocation(317,130);
+        Label label2 = new Label("Use Arrow Keys", (40));
+        addObject(label2,307,257);
     }
 }

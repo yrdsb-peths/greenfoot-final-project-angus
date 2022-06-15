@@ -23,7 +23,5 @@ public class GameOverWorld extends World
         Label gameOverLabel = new Label("Game Over!!!", 100);
         addObject(gameOverLabel, 300, 200);
         
-        Label scoreLabel = new Label(MyWorld.score, 80);
-        addObject(scoreLabel, 300, 280);
     }
 }
