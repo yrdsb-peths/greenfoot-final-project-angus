@@ -23,34 +23,27 @@ public class MyWorld extends World
         super(600, 400, 1); 
         
         Snake s = new Snake();
-        addObject(s, 310, 350);
+        addObject(s, 500, 200);
         
         addObject(scoreLabel, 50,50);
         
-        spawnApple();
+        spawnSoccerball();
         
     }
     
-    public void createApple()
+    public void createSoccerball()
     {
-        Apple apple = new Apple();
+        Soccerball ball = new Soccerball();
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
-        addObject(apple, x, y);
+        addObject(ball, x, y);
     }
     
-     public void spawnApple()
-    {
-        int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
-        Apple apple = new Apple();
-        addObject(apple, x, y);
-    }
     
     public void spawnSoccerball()
     {
-        int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
+        int x = Greenfoot.getRandomNumber(400);
+        int y = Greenfoot.getRandomNumber(400);
         Soccerball ball = new Soccerball();
         addObject(ball, x, y);
     }

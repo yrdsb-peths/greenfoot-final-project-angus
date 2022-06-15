@@ -24,5 +24,16 @@ public class Snake extends Actor
             setLocation(getX(), getY() - 5); 
         if(Greenfoot.isKeyDown("down"))
             setLocation(getX(), getY() + 5); 
+            
+        take();
+    }
+    public void take()
+    {
+        if(isTouching(Soccerball.class)){
+            removeTouching(Soccerball.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
+            world.spawnSoccerball();
+        }
     }
 }

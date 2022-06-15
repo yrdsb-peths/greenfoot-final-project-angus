@@ -2,7 +2,7 @@
 class.Apple.image=apple1.png
 class.MyWorld.image=Screen\ Shot\ 2022-06-14\ at\ 9.10.44\ PM.png
 class.Snake.image=snake2.png
-class.Soccerball.image=idle1.png
+class.Soccerball.image=apple1.png
 class.TitleScreen.image=istockphoto-1156102065-612x612.jpeg
 dependency1.from=GameOverWorld
 dependency1.to=Label
