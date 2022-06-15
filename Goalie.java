@@ -12,7 +12,7 @@ public class Goalie extends Actor
      * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage[] idle = new GreenfootImage[10];
+    GreenfootImage[] idle = new GreenfootImage[10;
     int speed = 1;
     
     /**
