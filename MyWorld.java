@@ -1,24 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * MyWorld is the Game itself.
- * Class MyWorld contains all 10 levels.
- * @author (Frederic Risling) 
- * @version (1.0)
- */
+
 public class MyWorld extends World
 {
-    // Die Variable level wird deklariert, welche das aktuelle Level speichern soll.
     private int level; 
 
-    // Hier werden alle Objekte, welche in dem Spiel agieren in einer Variable der jeweiligen Klasse gespeichert.
     Pfeil pfeil = new Pfeil();
     Powerleiste powerleiste = new Powerleiste();
     PowerLeiste_Ball powerLeiste_Ball = new PowerLeiste_Ball();
     Ball ball = new Ball();
     Torwart torwart = new Torwart();
 
-    // Folgende Objekte sind zusammen für die Anzeige des Spielstandes in den jeweiligen Level vorgesehen.
     Score score = new Score();
     Score_Ball anzeige01 = new Score_Ball();
     Score_Ball anzeige02 = new Score_Ball();
@@ -116,13 +108,13 @@ public class MyWorld extends World
         powerLeiste_Ball.setLevel(level);
     }
 
-    public int getRichtungPfeil() // liefert Richtung des Pfeiles
+    public int getRichtungPfeil() 
     {
         return pfeil.getRichtung();
 
     }
 
-    public boolean getGeschossenPfeil() // gibt true zurück, wenn der Pfeil "geschossen" wurde. Also wenn die Leertaste für den Pfeil gedrückt wurde.
+    public boolean getGeschossenPfeil()
     {
         return pfeil.getGeschossen();
     }

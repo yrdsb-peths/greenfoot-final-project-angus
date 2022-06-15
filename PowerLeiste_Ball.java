@@ -102,7 +102,7 @@ public class PowerLeiste_Ball extends Powerleiste
 
     public double getPower()
     {
-        return getX()-584; //bei -584 bekommt man zweistellige Zahlen
+        return getX()-584; 
     }
 
     public boolean getGeschossen()
@@ -124,7 +124,7 @@ public class PowerLeiste_Ball extends Powerleiste
         level = newLevel;
     }
 
-    private void pause(int i) //Quelle suchen
+    private void pause(int i) 
     { 
         try {
             Thread.sleep(i);
