@@ -40,8 +40,7 @@ public class Soccerball extends Actor
         MyWorld world = (MyWorld) getWorld();
         
         
-        
-        if(getY() >= world.getHeight())
+        if(getX() >= world.getHeight())
         {
             world.gameOver();
             world.removeObject(this);

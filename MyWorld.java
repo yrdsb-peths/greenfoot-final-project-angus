@@ -25,6 +25,9 @@ public class MyWorld extends World
         Snake s = new Snake();
         addObject(s, 500, 200);
         
+        Goalie g = new Goalie();
+        addObject(g, 500, 200);
+        
         addObject(scoreLabel, 50,50);
         
         spawnSoccerball();
