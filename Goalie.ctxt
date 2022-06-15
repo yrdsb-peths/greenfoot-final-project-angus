@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Goalie
-comment0.text=\n\ Write\ a\ description\ of\ class\ Snake\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=public\ Goalie()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ for(int\ i\ \=\ 0;\ i\ <\ idle.length;\ i++)\n\ \ \ \ \ \ \ \ {\n\ \ \ \ \ \ \ \ \ \ \ \ //idle[i]\ \=\ new\ GreenfootImage("images/idle_goalie/idle"\ +\ i\ +\ ".png");\n\ \ \ \ \ \ \ \ \ \ \ \ //idle[i].scale(50,50);\n\ \ \ \ \ \ \ \ \ \ \ \ idle[i]\ \=\ new\ GreenfootImage("images/goalie_idle/idle"\ +\ i\ +\ ".png");\ \n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ setImage(idle[0]);\n\ \ \ \ }\n\ \ \ \ \n\ \ \ \ int\ imageIndex\ \=\ 0;\n\ \ \ \ public\ void\ animateGoalie()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ setImage(idle[imageIndex]);\n\ \ \ \ \ \ \ \ imageIndex\ \=\ (imageIndex\ +\ 1)\ %\ idle.length;\n\ \ \ \ }\n
-comment2.params=
-comment2.target=void\ take()
-numComments=3
