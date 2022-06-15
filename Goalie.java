@@ -12,33 +12,33 @@ public class Goalie extends Actor
      * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    // GreenfootImage[] idle = new GreenfootImage[10;
-    //int speed = 1;
+    
+    //GreenfootImage[] idle = new GreenfootImage[10];
+    int speed = 1;
     
     /**
      * Constructor - Code runs one time when object is created
      */
-    //public Goalie()
-    //{
-        //for(int i = 0; i < idle.length; i++)
-        //{
-            //idle[i] = new GreenfootImage("images/idle_goalie.png/idle" + i + ".png");
+    
+    /**public Goalie()
+    {
+        for(int i = 0; i < idle.length; i++)
+        {
+            //idle[i] = new GreenfootImage("images/idle_goalie/idle" + i + ".png");
             //idle[i].scale(50,50);
-        //}
-        //setImage(idle[0]);
-    //}
+            idle[i] = new GreenfootImage("images/goalie_idle/idle" + i + ".png"); 
+        }
+        setImage(idle[0]);
+    }
     
-    /**
-     * Animate Goalie
-     */
-    
-    //int imageIndex = 0;
-    //public void animateGoalie()
-    //{
-        //setImage(idle[imageIndex]);
-        //imageIndex = (imageIndex + 1) % idle.length;
-    //}
-     
+    int imageIndex = 0;
+    public void animateGoalie()
+    {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
+    */
+   
     public void act()
     {
         if(Greenfoot.isKeyDown("left")){
