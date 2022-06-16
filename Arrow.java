@@ -9,7 +9,6 @@ public class Arrow extends Actor
     MyWorld w = (MyWorld) getWorld();
     private int level;
 
-    
 
     public Arrow()
     {
