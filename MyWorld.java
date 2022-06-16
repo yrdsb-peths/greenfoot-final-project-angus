@@ -86,67 +86,67 @@ public class MyWorld extends World
         return arrow.getShot();
     }
 
-    public double getPower() //liefert die Power des Schusses von dem Objekt der Klasse PowerLeiste_Ball.
+    public double getPower() 
     {
         return powerBar_Ball.getPower();
     }
 
-    public boolean getShotPower() // gibt true zurück, wenn der Ball der Powerleiste "geschossen" wurde. Also wenn die Leertaste für den Ball der Powerleiste gedrückt wurde.
+    public boolean getShotPower() 
     {
         return powerBar_Ball.getGeschossen();
     }
 
-    public boolean startTorwart() //liefert dem Objekt der Klasse Torwart, ob der Ball bereits losfliegt.
+    public boolean startTorwart() 
     {
         return ball.getStart();
     }
 
-    public void powerLeisteEntfernen() // Hierdurch verschwindet die Powerleiste
+    public void powerLeisteEntfernen() 
     {
         powerbar.disappear();
     }
 
-    public boolean getStartTorwart() // gibt zurück ob der Torwart angefangen hat zu parieren.
+    public boolean getStartTorwart() 
     {
         return goalie.getStart();
     }
 
-    public void toMove() // Der Torwart bewegt sich.
+    public void toMove() 
     {
         goalie.act2();
     }
 
-    public Actor getTorwart() // das Objekt der Klasse Torwart wird zurückgegeben.
+    public Actor getTorwart() 
     {
         return goalie.getTorwart();
     }
 
-    public void gehaltenBild() // Wenn der Torwart den Ball hält wird das Bild geändert in ein Bild, wo er den Ball hält.
+    public void gehaltenBild() 
     {
         goalie.bildWechsel();
     }
 
-    public void torwartReset() // Der Torwart wird an die Anfangszustand zurückgessetzt.
+    public void torwartReset() 
     {
         goalie.reset();
     }
 
-    public void arrowReset() // Der Pfeil wird zurückgesetzt in den Anfangszustand.
+    public void arrowReset()  
     {
         arrow.reset();
     }
 
-    public void powerbarReset() // Die Powerleiste wird zurückgesetzt in den Anfangszustand.
+    public void powerbarReset() 
     {
         powerbar.reset();
     }
 
-    public void powerBarBallReset() //Der Ball der Powerleiste wird zurückgesetzt in den Anfangszustand.
+    public void powerBarBallReset() 
     {
         powerBar_Ball.reset();
     }
 
-    public void display(int nummer, boolean tor) // Methode stellt die Tor/Fehler Anzeige je nach Fall ein.
+    public void display(int nummer, boolean tor) 
     {
         if(nummer == 1)
         {

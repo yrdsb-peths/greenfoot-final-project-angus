@@ -9,37 +9,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ball extends Actor
 {
-    // zeigt ob der Ball sich schon bewegt
     private boolean start; 
 
-    // zeigt, ob der Torwart den Ball gehalten hat.
     private boolean held; 
 
-    // zeigt ob der Schuss abgeschlossen ist.
     private boolean shotReady;
 
-    // zeigt ob aus dem Schuss ein Tor geworden ist.
     private boolean goal; 
 
-    // zeigt die Anzahl an Treffern in dem jeweiligen Level an.
     private int numberOfhits; 
 
-    // zeigt die Anzahl an Fehlschüssen in dem jeweiligen Level an.
     private int numberMissed;
 
-    // zeigt, der wievielte Schuss es in dem jeweiligen Level ist an.
     private int shotMiss;
 
-    // speichert die X-Koordinate eines Objektes als double.
     private double exactX;
 
-    //speichert die Y-Koordinate eines Objektes als double.
     private double exactY;
-
-    // Speichert in dem Objekt w der Klasse MyWorld die aktuelle Welt, damit auf deren Methoden zugegriffen werden kann.
+ 
     MyWorld w = (MyWorld) getWorld();
 
-    public Ball() //Konstruktor erzeugt ein Objekt der Klasse Ball mit dem Anfangszustand.
+    public Ball()  
     {
         start = false;
         setImage("Ball.png");
@@ -53,9 +43,9 @@ public class Ball extends Actor
     public void act() 
     {
 
-        if(shot()) // wird nur ausgeführt wenn Pfeil und der Ball der Powerleiste mit der Leertaste benutzt worden sind.
+        if(shot()) 
         {
-            if(!start) //Dient als Abbruchbedingung damit der Ball nur einmal pro Schuss geschossen wird.
+            if(!start) 
             {
 
                 shoot(getDirection(), getPower());
@@ -65,37 +55,37 @@ public class Ball extends Actor
 
     }    
 
-    public void toMove() // Hiermit wird letzendlich der Torwart dazu gebracht sich zu bewegen.
+    public void toMove() 
     {
         MyWorld w = (MyWorld) getWorld();
         w.toMove();
     }
 
-    public Actor getGoalie() // Der Torwart wird zurückgegeben.
+    public Actor getGoalie() 
     {
         MyWorld w = (MyWorld) getWorld();
         return w.getTorwart();
     }
 
-    public boolean shot() // gibt zurück ob sowohl Pfeil als auch der Ball der Powerleiste "geschossen" wurden. Also ob bei beiden die Leertaste gedrückt worden ist.
+    public boolean shot()  
     {
         MyWorld w = (MyWorld) getWorld();
         return w.getShotArrow() && w.getShotPower();
     }
 
-    public int getDirection() // gibt Pfeildirection zurück -> in welche direction geschossen wird
+    public int getDirection() 
     {
         MyWorld w = (MyWorld) getWorld();
         return w.getDirectionArrow();
     }
 
-    public double getPower() // gibt Power zurück -> wie hoch geschossen wird
+    public double getPower() 
     {
         MyWorld w = (MyWorld) getWorld();
         return w.getPower();
     }
 
-    public boolean getStart() // gibt zurück ob der Ball sich schon bewegt
+    public boolean getStart() 
     {
         return start;
     }
@@ -105,7 +95,7 @@ public class Ball extends Actor
     {        
         start = true; 
         toMove();
-        setRotation(direction-90); // Damit der Ball sich in die gewünschte direction bewegt ist es nötig die direction -90 zu rechnen.
+        setRotation(direction-90); 
         if(power<=20)
         {
             if(direction>=340 || direction<=20)
@@ -575,7 +565,6 @@ public class Ball extends Actor
         MyWorld w = (MyWorld) getWorld();
         if(getX()< 145 || getX()> 555 || getY()<57)
         {  
-            // getImage().setTransparency(0); //https://www.greenfoot.org/topics/2002
             setImage("Ball_red.png");
             this.getImage().scale(33,33);
             shotReady= true;
@@ -622,38 +611,31 @@ public class Ball extends Actor
             {
                 w.display(1, false);
                 w.display(2, true);
-                // w.addObject(new Fehlschuss(), 62,363);
-                // w.addObject(new Treffer(), 64, 421);
+      
             }
             else if (shotMiss==1)
             {
                 w.display(11, false);
                 w.display(12, true);
-                // w.addObject(new Fehlschuss(), 97,363);
-                // w.addObject(new Treffer(), 99, 421);
+                
             }
             else if (shotMiss==2)
             {
                 w.display(21, false);
                 w.display(22, true);
-                // w.addObject(new Fehlschuss(), 132,363);
-                // w.addObject(new Treffer(), 134, 421);
-
+               
             }
             else if (shotMiss==3)
             {
                 w.display(31, false);
                 w.display(32, true);
-                // w.addObject(new Fehlschuss(), 167,363);
-                // w.addObject(new Treffer(), 169, 421);
 
             }
             else if(shotMiss ==4)
             {
                 w.display(41, false);
                 w.display(42, true);
-                // w.addObject(new Fehlschuss(), 202,363);
-                // w.addObject(new Treffer(), 204, 421);
+                
             }
             pause(200);
         }
@@ -668,38 +650,31 @@ public class Ball extends Actor
             {
                 w.display(1, true);
                 w.display(2, false);
-                // w.addObject(new Treffer(), 62,363);
-                // w.addObject(new Fehlschuss(), 64, 421);
+                
             }
             else if (shotMiss==1)
             {
                 w.display(11, true);
                 w.display(12, false);
-                // w.addObject(new Treffer(), 97,363);
-                // w.addObject(new Fehlschuss(), 99, 421);
+                
             }
             else if (shotMiss==2)
             {
                 w.display(21, true);
                 w.display(22, false);
-                // w.addObject(new Treffer(), 132,363);
-                // w.addObject(new Fehlschuss(), 134, 421);
 
             }
             else if (shotMiss==3)
             {
                 w.display(31, true);
                 w.display(32, false);
-                // w.addObject(new Treffer(), 167,363);
-                // w.addObject(new Fehlschuss(), 169, 421);
 
             }
             else if(shotMiss ==4)
             {
                 w.display(41, true);
                 w.display(42, false);
-                // w.addObject(new Treffer(), 202,363);
-                // w.addObject(new Fehlschuss(), 204, 421);
+            
             }
             pause(200);
         }
@@ -740,9 +715,6 @@ public class Ball extends Actor
         move((double)distance);
     }
 
-    /**
-     * Move forward by the specified exact distance.
-     */
     public void move(double distance)
     {
         double radians = Math.toRadians(getRotation());
@@ -751,9 +723,6 @@ public class Ball extends Actor
         setLocation(exactX + dx, exactY + dy);
     }
 
-    /**
-     * Set the location using exact coordinates.
-     */
     public void setLocation(double x, double y) 
     {
         exactX = x;
@@ -761,11 +730,6 @@ public class Ball extends Actor
         super.setLocation((int) (x + 0.5), (int) (y + 0.5));
     }
 
-    /**
-     * Set the location using integer coordinates.
-     * (Overrides the method in Actor.)
-     */
-    @Override
     public void setLocation(int x, int y) 
     {
         exactX = x;
@@ -773,23 +737,17 @@ public class Ball extends Actor
         super.setLocation(x, y);
     }
 
-    /**
-     * Return the exact x-coordinate (as a double).
-     */
     public double getExactX() 
     {
         return exactX;
     }
 
-    /**
-     * Return the exact y-coordinate (as a double).
-     */
     public double getExactY() 
     {
         return exactY;
     }
 
-    public void size() // stellt die Größe des Balles ein
+    public void size() 
     { 
         if (getX()>140 && getX()<570)
         {
@@ -797,7 +755,7 @@ public class Ball extends Actor
             int y = 56;
             if (getY()>=425)
             {
-                this.getImage().scale(x,y); // Diese Skalierung ist das Originalbild  
+                this.getImage().scale(x,y);  
             }
             if (getY()<425 && getY()>400)
             {
@@ -843,7 +801,7 @@ public class Ball extends Actor
             int y = 56;
             if (getY()>=425)
             {
-                this.getImage().scale(x,y); // Diese Skalierung ist das Originalbild  
+                this.getImage().scale(x,y); 
             }
             if (getY()<425 && getY()>400)
             {
@@ -882,7 +840,7 @@ public class Ball extends Actor
 
     }
 
-    private void pause(int i) //Quelle suchen
+    private void pause(int i) 
     { 
         try {
             Thread.sleep(i);

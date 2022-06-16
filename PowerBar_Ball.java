@@ -1,10 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-/**
- * Write a description of class PowerLeiste_Ball here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class PowerBar_Ball extends Powerbar
 {
 
@@ -56,16 +51,16 @@ public class PowerBar_Ball extends Powerbar
 
         for(int i = 0; i<68; i++)
         {
-            bewegen_rechts();
+            move_right();
         }
         for(int i = 0; i<68; i++)
         {
-            bewegen_links();
+            move_left();
         }
 
     }
 
-    public void bewegen_rechts()
+    public void move_right()
     {
         if(!start)
         {
@@ -85,7 +80,7 @@ public class PowerBar_Ball extends Powerbar
 
     }
 
-    public void bewegen_links()
+    public void move_left()
     {
         int i = 0;
         if(!shot)
@@ -102,7 +97,7 @@ public class PowerBar_Ball extends Powerbar
 
     public double getPower()
     {
-        return getX()-584; //bei -584 bekommt man zweistellige Zahlen
+        return getX()-584; 
     }
 
     public boolean getGeschossen()
@@ -124,7 +119,7 @@ public class PowerBar_Ball extends Powerbar
         level = newLevel;
     }
 
-    private void pause(int i) //Quelle suchen
+    private void pause(int i) 
     { 
         try {
             Thread.sleep(i);

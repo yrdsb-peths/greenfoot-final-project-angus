@@ -103,7 +103,7 @@ public class Arrow extends Actor
     }
     
 
-    private void pause(int i) //Quelle suchen
+    private void pause(int i) 
     { 
         try {
             Thread.sleep(i);

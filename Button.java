@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Button here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Button extends Actor
 {
     private boolean clicked;
@@ -30,7 +24,7 @@ public class Button extends Actor
         music();
     }    
 
-    public void click() //https://www.youtube.com/watch?v=EnssnF5cXg0
+    public void click()
     {
         if(Greenfoot.mouseClicked(this))
         {

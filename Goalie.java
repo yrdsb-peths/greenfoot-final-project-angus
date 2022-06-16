@@ -1,11 +1,6 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Torwart here.
- * Picture: Out of http://www.greenfoot.org/scenarios/7622
- * @author (Frederic Risling) 
- * @version (a version number or a date)
- */
+
 public class Goalie extends Actor
 {
     private boolean start;
@@ -14,7 +9,7 @@ public class Goalie extends Actor
     {
         start = false;
         setLocation(350,190);
-        setImage("Torwart_1.png");
+        setImage("Goalie_1.png");
         this.getImage().scale(75,150);
     }
 
@@ -32,7 +27,7 @@ public class Goalie extends Actor
 
     }
 
-    public boolean geschossen() // gibt zurück ob geschossen wurde
+    public boolean geschossen() 
     {
         MyWorld w = (MyWorld) getWorld();
         return w.getShotArrow() && w.getShotPower();
@@ -77,13 +72,13 @@ public class Goalie extends Actor
     }
 
 
-    public void bewegen_rechts()
+    public void move_right()
     {
         setLocation(getX()+1, getY());
         pause(10);
     }
 
-    public void bewegen_links()
+    public void move_left()
     {       
         setLocation(getX()-1, getY());
         pause(10);
@@ -93,17 +88,17 @@ public class Goalie extends Actor
     {
         if(getX()> 400)
         {
-            setImage("Torwart_Rot_rechts.png");
+            setImage("Goalie_Red_Right.png");
             this.getImage().scale(85,170);
         }
         else if (getX()< 300)
         {
-            setImage("Torwart_Rot_links.png");
+            setImage("Goalie_Red_Left.png");
             this.getImage().scale(85,170);
         }
         else
         {
-            setImage("Torwart_Rot_mitte.png");
+            setImage("Goalie_Red_Middle.png");
             this.getImage().scale(85,170);
         }
     }
@@ -112,11 +107,11 @@ public class Goalie extends Actor
     {
         start = false;
         setLocation(350,190);
-        setImage("Torwart_1.png");
+        setImage("Goalie_1.png");
         this.getImage().scale(75,150);
     }
 
-        private void pause(int i) //Quelle suchen
+        private void pause(int i) 
         { 
         try {
             Thread.sleep(i);
