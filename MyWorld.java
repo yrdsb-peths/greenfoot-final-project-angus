@@ -12,26 +12,24 @@ public class MyWorld extends World
     Goalie goalie = new Goalie();
 
     Score score = new Score();
-    Score_Ball anzeige01 = new Score_Ball();
-    Score_Ball anzeige02 = new Score_Ball();
-    Score_Ball anzeige11 = new Score_Ball();
-    Score_Ball anzeige12 = new Score_Ball();
-    Score_Ball anzeige21 = new Score_Ball();
-    Score_Ball anzeige22 = new Score_Ball();
-    Score_Ball anzeige31 = new Score_Ball();
-    Score_Ball anzeige32 = new Score_Ball();
-    Score_Ball anzeige41 = new Score_Ball();
-    Score_Ball anzeige42 = new Score_Ball();
+    Score_Ball display01 = new Score_Ball();
+    Score_Ball display02 = new Score_Ball();
+    Score_Ball display11 = new Score_Ball();
+    Score_Ball display12 = new Score_Ball();
+    Score_Ball display21 = new Score_Ball();
+    Score_Ball display22 = new Score_Ball();
+    Score_Ball display31 = new Score_Ball();
+    Score_Ball display32 = new Score_Ball();
+    Score_Ball display41 = new Score_Ball();
+    Score_Ball display42 = new Score_Ball();
 
     
     private GreenfootSound backgroundMusic = new GreenfootSound("Stadion.mp3"); //Quelle: https://www.greenfoot.org/topics/1649    Quelle Sound: http://www.hoerspielbox.de/download-sound/?timestamp=85&title=Stadionatmo%20mit%20jubelenden%20Massen%20und%20Beschallung&cat=Atmosphären%20Stadt%20&permalink=http://www.hoerspielbox.de/im-fussballstadion-vor-anpfiff/&file=1-1-10026.mp3&soundlink=http://archive.hoerspielbox.de/1-1-10026.mp3
 
     public MyWorld()
     {    
-        // Einstellung der Größe des Fensters.
         super(700, 465, 1); 
 
-        // Hier werden zwei Objekte der Welt hinzugefügt, welche den Hintergrund in Form eines Tores, eines Stadions und eines Himmels darstellen.
         addObject(new Himmel(), 350, 400);
         addObject(new Stadium(), 350, 0);
         addObject(new Goal(), 350, 150);
@@ -48,31 +46,31 @@ public class MyWorld extends World
 
         //score display
         addObject(score, 130,400);
-        addObject(anzeige01, 62,363);
-        addObject(anzeige02,64, 421);
-        addObject(anzeige11,97,363);
-        addObject(anzeige12,99, 421);
-        addObject(anzeige21,132,363);
-        addObject(anzeige22,134, 421);
-        addObject(anzeige31,167,363);
-        addObject(anzeige32,169, 421);
-        addObject(anzeige41,202,363);
-        addObject(anzeige42,204, 421);
+        addObject(display01, 62,363);
+        addObject(display02,64, 421);
+        addObject(display11,97,363);
+        addObject(display12,99, 421);
+        addObject(display21,132,363);
+        addObject(display22,134, 421);
+        addObject(display31,167,363);
+        addObject(display32,169, 421);
+        addObject(display41,202,363);
+        addObject(display42,204, 421);
 
     }
 
-    public void anzeigeReset() // Diese Methode stellt die Tor/Fehler Anzeige wieder zurück, bei beginn eines neuen Levels.
+    public void displayReset() 
     {
-        anzeige01.reset();
-        anzeige02.reset();
-        anzeige11.reset();
-        anzeige12.reset();
-        anzeige21.reset();
-        anzeige22.reset();
-        anzeige31.reset();
-        anzeige32.reset();
-        anzeige41.reset();
-        anzeige42.reset();
+        display01.reset();
+        display02.reset();
+        display11.reset();
+        display12.reset();
+        display21.reset();
+        display22.reset();
+        display31.reset();
+        display32.reset();
+        display41.reset();
+        display42.reset();
     }
 
     
@@ -148,116 +146,116 @@ public class MyWorld extends World
         powerBar_Ball.reset();
     }
 
-    public void anzeige(int nummer, boolean tor) // Methode stellt die Tor/Fehler Anzeige je nach Fall ein.
+    public void display(int nummer, boolean tor) // Methode stellt die Tor/Fehler Anzeige je nach Fall ein.
     {
         if(nummer == 1)
         {
             if (tor)
             {
-                anzeige01.treffer();
+                display01.treffer();
             }
             else
             {
-                anzeige01.miss();
+                display01.miss();
             }
         }
         else if (nummer == 2)
         {
             if(tor)
             {
-                anzeige02.treffer();
+                display02.treffer();
             }
             else
             {
-                anzeige02.miss();
+                display02.miss();
             }
         }
         else if (nummer == 11)
         {
             if(tor)
             {
-                anzeige11.treffer();
+                display11.treffer();
             }
             else
             {
-                anzeige11.miss();
+                display11.miss();
             }
         }
         else if (nummer == 12)
         {
             if(tor)
             {
-                anzeige12.treffer();
+                display12.treffer();
             }
             else
             {
-                anzeige12.miss();
+                display12.miss();
             }
         }
         else if (nummer == 21)
         {
             if(tor)
             {
-                anzeige21.treffer();
+                display21.treffer();
             }
             else
             {
-                anzeige21.miss();
+                display21.miss();
             }
         }
         else if (nummer == 22)
         {
             if(tor)
             {
-                anzeige22.treffer();
+                display22.treffer();
             }
             else
             {
-                anzeige22.miss();
+                display22.miss();
             }
         }
         else if (nummer == 31)
         {
             if(tor)
             {
-                anzeige31.treffer();
+                display31.treffer();
             }
             else
             {
-                anzeige31.miss();
+                display31.miss();
             }
         }
         else if (nummer == 32)
         {
             if(tor)
             {
-                anzeige32.treffer();
+                display32.treffer();
             }
             else
             {
-                anzeige32.miss();
+                display32.miss();
             }
         }
         else if (nummer == 41)
         {
             if(tor)
             {
-                anzeige41.treffer();
+                display41.treffer();
             }
             else
             {
-                anzeige41.miss();
+                display41.miss();
             }
         }
         else if (nummer == 42)
         {
             if(tor)
             {
-                anzeige42.treffer();
+                display42.treffer();
             }
             else
             {
-                anzeige42.miss();
+                display42.miss();
             }
         }
     }

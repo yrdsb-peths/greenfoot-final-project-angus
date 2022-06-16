@@ -582,32 +582,32 @@ public class Ball extends Actor
 
             if(shotMiss==0)
             {
-                w.anzeige(1, true);
-                w.anzeige(2, false);
+                w.display(1, true);
+                w.display(2, false);
 
             }
             else if (shotMiss==1)
             {
-                w.anzeige(11, true);
-                w.anzeige(12, false);
+                w.display(11, true);
+                w.display(12, false);
 
             }
             else if (shotMiss==2)
             {
-                w.anzeige(21, true);
-                w.anzeige(22, false);
+                w.display(21, true);
+                w.display(22, false);
 
             }
             else if (shotMiss==3)
             {
-                w.anzeige(31, true);
-                w.anzeige(32, false);
+                w.display(31, true);
+                w.display(32, false);
 
             }
             else if(shotMiss ==4)
             {
-                w.anzeige(41, true);
-                w.anzeige(42, false);
+                w.display(41, true);
+                w.display(42, false);
 
             }
             pause(200);
@@ -620,38 +620,38 @@ public class Ball extends Actor
             numberOfhits++;
             if(shotMiss==0)
             {
-                w.anzeige(1, false);
-                w.anzeige(2, true);
+                w.display(1, false);
+                w.display(2, true);
                 // w.addObject(new Fehlschuss(), 62,363);
                 // w.addObject(new Treffer(), 64, 421);
             }
             else if (shotMiss==1)
             {
-                w.anzeige(11, false);
-                w.anzeige(12, true);
+                w.display(11, false);
+                w.display(12, true);
                 // w.addObject(new Fehlschuss(), 97,363);
                 // w.addObject(new Treffer(), 99, 421);
             }
             else if (shotMiss==2)
             {
-                w.anzeige(21, false);
-                w.anzeige(22, true);
+                w.display(21, false);
+                w.display(22, true);
                 // w.addObject(new Fehlschuss(), 132,363);
                 // w.addObject(new Treffer(), 134, 421);
 
             }
             else if (shotMiss==3)
             {
-                w.anzeige(31, false);
-                w.anzeige(32, true);
+                w.display(31, false);
+                w.display(32, true);
                 // w.addObject(new Fehlschuss(), 167,363);
                 // w.addObject(new Treffer(), 169, 421);
 
             }
             else if(shotMiss ==4)
             {
-                w.anzeige(41, false);
-                w.anzeige(42, true);
+                w.display(41, false);
+                w.display(42, true);
                 // w.addObject(new Fehlschuss(), 202,363);
                 // w.addObject(new Treffer(), 204, 421);
             }
@@ -666,38 +666,38 @@ public class Ball extends Actor
             w.gehaltenBild();
             if(shotMiss==0)
             {
-                w.anzeige(1, true);
-                w.anzeige(2, false);
+                w.display(1, true);
+                w.display(2, false);
                 // w.addObject(new Treffer(), 62,363);
                 // w.addObject(new Fehlschuss(), 64, 421);
             }
             else if (shotMiss==1)
             {
-                w.anzeige(11, true);
-                w.anzeige(12, false);
+                w.display(11, true);
+                w.display(12, false);
                 // w.addObject(new Treffer(), 97,363);
                 // w.addObject(new Fehlschuss(), 99, 421);
             }
             else if (shotMiss==2)
             {
-                w.anzeige(21, true);
-                w.anzeige(22, false);
+                w.display(21, true);
+                w.display(22, false);
                 // w.addObject(new Treffer(), 132,363);
                 // w.addObject(new Fehlschuss(), 134, 421);
 
             }
             else if (shotMiss==3)
             {
-                w.anzeige(31, true);
-                w.anzeige(32, false);
+                w.display(31, true);
+                w.display(32, false);
                 // w.addObject(new Treffer(), 167,363);
                 // w.addObject(new Fehlschuss(), 169, 421);
 
             }
             else if(shotMiss ==4)
             {
-                w.anzeige(41, true);
-                w.anzeige(42, false);
+                w.display(41, true);
+                w.display(42, false);
                 // w.addObject(new Treffer(), 202,363);
                 // w.addObject(new Fehlschuss(), 204, 421);
             }
