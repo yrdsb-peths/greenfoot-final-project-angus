@@ -74,7 +74,7 @@ public class Ball extends Actor
     public Actor getGoalie() // Der Torwart wird zurückgegeben.
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getGoalie();
+        return w.getTorwart();
     }
 
     public boolean shot() // gibt zurück ob sowohl Pfeil als auch der Ball der Powerleiste "geschossen" wurden. Also ob bei beiden die Leertaste gedrückt worden ist.
