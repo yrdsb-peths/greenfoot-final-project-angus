@@ -38,5 +38,8 @@ public class Start extends World
         label2.setLocation(425,379);
         label2.setLocation(455,381);
         label2.setLocation(371,370);
+        Label label3 = new Label("<-- Click Here to Start Game", (30));
+        addObject(label3,244,254);
+        label3.setLocation(374,256);
     }
 }
