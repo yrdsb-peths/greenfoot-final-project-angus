@@ -5,11 +5,11 @@ public class MyWorld extends World
 {
     private int level; 
 
-    Pfeil pfeil = new Pfeil();
-    Powerleiste powerleiste = new Powerleiste();
-    PowerLeiste_Ball powerLeiste_Ball = new PowerLeiste_Ball();
+    Arrow arrow = new Arrow();
+    Powerbar powerbar = new Powerbar();
+    PowerBar_Ball powerLeiste_Ball = new PowerBar_Ball();
     Ball ball = new Ball();
-    Torwart torwart = new Torwart();
+    Goalie goalie = new Goalie();
 
     Score score = new Score();
     Score_Ball anzeige01 = new Score_Ball();
@@ -24,7 +24,7 @@ public class MyWorld extends World
     Score_Ball anzeige42 = new Score_Ball();
 
     // Dieses Objekt zeigt das aktuelle Level an.
-    LevelAnzeige levelAnzeige = new LevelAnzeige();
+    Level leveldisplay = new Level();
 
     // Hier wird die Hintergrundmusik in einer Variable deklariert und initialisiert.
     private GreenfootSound backgroundMusic = new GreenfootSound("Stadion.mp3"); //Quelle: https://www.greenfoot.org/topics/1649    Quelle Sound: http://www.hoerspielbox.de/download-sound/?timestamp=85&title=Stadionatmo%20mit%20jubelenden%20Massen%20und%20Beschallung&cat=Atmosphären%20Stadt%20&permalink=http://www.hoerspielbox.de/im-fussballstadion-vor-anpfiff/&file=1-1-10026.mp3&soundlink=http://archive.hoerspielbox.de/1-1-10026.mp3
@@ -37,22 +37,19 @@ public class MyWorld extends World
         // Hier werden zwei Objekte der Welt hinzugefügt, welche den Hintergrund in Form eines Tores, eines Stadions und eines Himmels darstellen.
         addObject(new Himmel(), 350, 400);
         addObject(new Stadium(), 350, 0);
-        addObject(new Tor(), 350, 150);
+        addObject(new Goal(), 350, 150);
 
-        // Hier wird festgelegt, dass die Hintergrundmusik durchgehend gespielt werden soll.
         backgroundMusic.playLoop();
 
-        // Das Level wird mit 1 initialisiert.
         level = 1;
 
-        // Hier werden die Objekte, die für einen Schuss miteinander interagieren müssen, der Welt hinzugefügt.
-        addObject(torwart, 350,190);
+        addObject(goalie, 350,190);
         addObject(ball, 350, 420);
-        addObject(pfeil, 350, 355);
-        addObject(powerleiste, 620, 375);
+        addObject(arrow, 350, 355);
+        addObject(powerbar, 620, 375);
         addObject(powerLeiste_Ball, 584, 362);
 
-        //Scoreanzeige
+        //score display
         addObject(score, 130,400);
         addObject(anzeige01, 62,363);
         addObject(anzeige02,64, 421);
@@ -66,7 +63,7 @@ public class MyWorld extends World
         addObject(anzeige42,204, 421);
 
         //Levelanzeige
-        addObject(levelAnzeige, 625, 190);
+        addObject(leveldisplay, 625, 190);
     }
 
     public void anzeigeReset() // Diese Methode stellt die Tor/Fehler Anzeige wieder zurück, bei beginn eines neuen Levels.
@@ -90,7 +87,7 @@ public class MyWorld extends World
 
     public void setLevelAnzeige() // ändert die Anzeige des Levels auf das aktuelle Level.
     {
-        levelAnzeige.bildwechsel(level);
+        leveldisplay.picture(level);
     }
 
     public void levelErhöhen() // Erhöht das Level um 1 und öffnet bei Gewinn des Spiels den Win-Screen
@@ -104,19 +101,19 @@ public class MyWorld extends World
 
     public void setLevelPP() // Hier werden bei den Objekten der Klassen Pfeil und PowerLeiste_Ball die Level auf das aktuelle aktualisiert.
     {
-        pfeil.setLevel(level);
+        arrow.setLevel(level);
         powerLeiste_Ball.setLevel(level);
     }
 
     public int getRichtungPfeil() 
     {
-        return pfeil.getRichtung();
+        return arrow.getRichtung();
 
     }
 
     public boolean getGeschossenPfeil()
     {
-        return pfeil.getGeschossen();
+        return arrow.getGeschossen();
     }
 
     public double getPower() //liefert die Power des Schusses von dem Objekt der Klasse PowerLeiste_Ball.
@@ -136,42 +133,42 @@ public class MyWorld extends World
 
     public void powerLeisteEntfernen() // Hierdurch verschwindet die Powerleiste
     {
-        powerleiste.verschwinden();
+        powerbar.verschwinden();
     }
 
     public boolean getStartTorwart() // gibt zurück ob der Torwart angefangen hat zu parieren.
     {
-        return torwart.getStart();
+        return goalie.getStart();
     }
 
     public void twBewegen() // Der Torwart bewegt sich.
     {
-        torwart.act2();
+        goalie.act2();
     }
 
     public Actor getTorwart() // das Objekt der Klasse Torwart wird zurückgegeben.
     {
-        return torwart.getTorwart();
+        return goalie.getTorwart();
     }
 
     public void gehaltenBild() // Wenn der Torwart den Ball hält wird das Bild geändert in ein Bild, wo er den Ball hält.
     {
-        torwart.bildWechsel();
+        goalie.bildWechsel();
     }
 
     public void torwartReset() // Der Torwart wird an die Anfangszustand zurückgessetzt.
     {
-        torwart.reset();
+        goalie.reset();
     }
 
     public void pfeilReset() // Der Pfeil wird zurückgesetzt in den Anfangszustand.
     {
-        pfeil.reset();
+        arrow.reset();
     }
 
     public void powerleisteReset() // Die Powerleiste wird zurückgesetzt in den Anfangszustand.
     {
-        powerleiste.reset();
+        powerbar.reset();
     }
 
     public void powerLeisteBallReset() //Der Ball der Powerleiste wird zurückgesetzt in den Anfangszustand.

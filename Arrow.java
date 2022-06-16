@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (Frederic Risling) 
  * @version (1.0)
  */
-public class Pfeil extends Actor
+public class Arrow extends Actor
 {
 
     public boolean geschossen;
@@ -16,7 +16,7 @@ public class Pfeil extends Actor
 
     
 
-    public Pfeil()
+    public Arrow()
     {
         geschossen = false;
         level = 1;

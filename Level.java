@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelAnzeige extends Actor
+public class Level extends Actor
 {
     /**
      * Act - do whatever the LevelAnzeige wants to do. This method is called whenever
@@ -17,7 +17,7 @@ public class LevelAnzeige extends Actor
         // Add your action code here.
     }    
     
-    public void bildwechsel(int level)
+    public void picture(int level)
     {
         if (level == 1)
         {

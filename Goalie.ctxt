@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=Torwart
+comment0.target=Goalie
 comment0.text=\n\ Write\ a\ description\ of\ class\ Torwart\ here.\n\ Picture\:\ Out\ of\ http\://www.greenfoot.org/scenarios/7622\n\ @author\ (Frederic\ Risling)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=Torwart()
+comment1.target=Goalie()
 comment10.params=
 comment10.target=void\ bildWechsel()
 comment11.params=

@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Himmel here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Himmel extends Actor
 {
     /**
@@ -17,5 +12,4 @@ public class Himmel extends Actor
         // Add your action code here.
     }    
     
-    // https://bilder.4ever.eu/natur/himmel/nachthimmel-251684
 }

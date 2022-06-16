@@ -6,11 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (Frederic Risling) 
  * @version (a version number or a date)
  */
-public class Torwart extends Actor
+public class Goalie extends Actor
 {
     private boolean start;
 
-    public Torwart()
+    public Goalie()
     {
         start = false;
         setLocation(350,190);

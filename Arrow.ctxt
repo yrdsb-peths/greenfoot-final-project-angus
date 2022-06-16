@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=Pfeil
+comment0.target=Arrow
 comment0.text=\n\ Write\ a\ description\ of\ class\ Pfeil\ here.\n\ Picture\:\ Out\ of\ http\://www.greenfoot.org/scenarios/7622\n\ @author\ (Frederic\ Risling)\ \n\ @version\ (1.0)\n
 comment1.params=
-comment1.target=Pfeil()
+comment1.target=Arrow()
 comment10.params=i
 comment10.target=void\ pause(int)
 comment2.params=

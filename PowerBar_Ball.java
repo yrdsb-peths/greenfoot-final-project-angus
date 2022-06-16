@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PowerLeiste_Ball extends Powerleiste
+public class PowerBar_Ball extends Powerbar
 {
 
     private boolean geschossen;
@@ -13,7 +13,7 @@ public class PowerLeiste_Ball extends Powerleiste
     MyWorld w = (MyWorld) getWorld();
     private int level;
 
-    public PowerLeiste_Ball()
+    public PowerBar_Ball()
     {
 
         geschossen = false;
@@ -102,7 +102,7 @@ public class PowerLeiste_Ball extends Powerleiste
 
     public double getPower()
     {
-        return getX()-584; 
+        return getX()-584; //bei -584 bekommt man zweistellige Zahlen
     }
 
     public boolean getGeschossen()
@@ -124,7 +124,7 @@ public class PowerLeiste_Ball extends Powerleiste
         level = newLevel;
     }
 
-    private void pause(int i) 
+    private void pause(int i) //Quelle suchen
     { 
         try {
             Thread.sleep(i);

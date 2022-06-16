@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Tor extends Actor
+public class Goal extends Actor
 {
     /**
      * Act - do whatever the Tor wants to do. This method is called whenever
