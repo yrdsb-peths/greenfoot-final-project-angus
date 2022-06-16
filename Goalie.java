@@ -35,7 +35,7 @@ public class Goalie extends Actor
     public boolean geschossen() // gibt zurück ob geschossen wurde
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getGeschossenPfeil() && w.getGeschossenPower();
+        return w.getShotArrow() && w.getShotPower();
     }
 
     public void parade()

@@ -12,10 +12,10 @@ public class Powerbar extends Actor
     public boolean geschossen()
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getGeschossenPower();
+        return w.getShotPower();
     }
     
-    public void verschwinden()
+    public void disappear()
     {
         getImage().setTransparency(0);
     }

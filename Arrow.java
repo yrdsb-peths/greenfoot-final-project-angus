@@ -1,16 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Pfeil here.
- * Picture: Out of http://www.greenfoot.org/scenarios/7622
- * @author (Frederic Risling) 
- * @version (1.0)
- */
+
 public class Arrow extends Actor
 {
 
-    public boolean geschossen;
-    public int richtung;
+    public boolean shot;
+    public int direction;
     MyWorld w = (MyWorld) getWorld();
     private int level;
 
@@ -18,49 +13,49 @@ public class Arrow extends Actor
 
     public Arrow()
     {
-        geschossen = false;
+        shot = false;
         level = 1;
     }
 
     public void act() 
     {
-        if(!geschossen)
+        if(!shot)
         {
-            rotieren();
+            rotate();
 
         }
-        if(geschossen)
+        if(shot)
         {
             getImage().setTransparency(0);
         }
 
     }
 
-    public void rotieren()
+    public void rotate()
     {
         for (int i = 0; i<60; i++)
         {
-            rotieren_rechts();
-            richtung = getRotation();
+            rotate_right();
+            direction = getRotation();
         }
         for(int i=0;i<120;i++)
         {
-            rotieren_links();
-            richtung = getRotation();
+            rotate_left();
+            direction = getRotation();
         }
         for (int i = 0; i<60; i++)
         {
-            rotieren_rechts();
-            richtung = getRotation();
+            rotate_right();
+            direction = getRotation();
         }
 
     }
 
-    public void rotieren_rechts()
+    public void rotate_right()
     {
-        if(Greenfoot.isKeyDown("space")|| geschossen)
+        if(Greenfoot.isKeyDown("space")|| shot)
         {
-            geschossen = true;
+            shot = true;
 
         }
         else 
@@ -72,11 +67,11 @@ public class Arrow extends Actor
 
     }
 
-    public void rotieren_links()
+    public void rotate_left()
     {
-        if(Greenfoot.isKeyDown("space")|| geschossen)
+        if(Greenfoot.isKeyDown("space")|| shot)
         {
-            geschossen = true;
+            shot = true;
 
         }
         else
@@ -88,29 +83,25 @@ public class Arrow extends Actor
         }
     }
 
-    public int getRichtung()
+    public int getDirection()
     {
 
-        return richtung;
+        return direction;
 
     }
 
-    public boolean getGeschossen()
+    public boolean getShot()
     {
-        return geschossen;
+        return shot;
     }
 
     public void reset()
     {
         setRotation(0);
-        geschossen = false;
+        shot = false;
         getImage().setTransparency(255);
     }
     
-    public void setLevel(int newLevel)
-    {
-        level = newLevel;
-    }
 
     private void pause(int i) //Quelle suchen
     { 

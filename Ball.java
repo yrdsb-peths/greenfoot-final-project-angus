@@ -13,22 +13,22 @@ public class Ball extends Actor
     private boolean start; 
 
     // zeigt, ob der Torwart den Ball gehalten hat.
-    private boolean gehalten; 
+    private boolean held; 
 
     // zeigt ob der Schuss abgeschlossen ist.
-    private boolean schussFertig;
+    private boolean shotReady;
 
     // zeigt ob aus dem Schuss ein Tor geworden ist.
-    private boolean tor; 
+    private boolean goal; 
 
     // zeigt die Anzahl an Treffern in dem jeweiligen Level an.
-    private int anzahlGetroffen; 
+    private int numberOfhits; 
 
     // zeigt die Anzahl an Fehlschüssen in dem jeweiligen Level an.
-    private int anzahlVerschossen;
+    private int numberMissed;
 
     // zeigt, der wievielte Schuss es in dem jeweiligen Level ist an.
-    private int schussNr;
+    private int shotMiss;
 
     // speichert die X-Koordinate eines Objektes als double.
     private double exactX;
@@ -44,49 +44,49 @@ public class Ball extends Actor
         start = false;
         setImage("Ball.png");
         this.getImage().scale(57,56);
-        schussNr= 0;
-        anzahlGetroffen= 0;
-        anzahlVerschossen= 0;
+        shotMiss= 0;
+        numberOfhits = 0;
+        numberMissed = 0;
 
     }
 
     public void act() 
     {
 
-        if(geschossen()) // wird nur ausgeführt wenn Pfeil und der Ball der Powerleiste mit der Leertaste benutzt worden sind.
+        if(shot()) // wird nur ausgeführt wenn Pfeil und der Ball der Powerleiste mit der Leertaste benutzt worden sind.
         {
             if(!start) //Dient als Abbruchbedingung damit der Ball nur einmal pro Schuss geschossen wird.
             {
 
-                schiessen(getRichtung(), getPower());
+                shoot(getDirection(), getPower());
 
             }
         }
 
     }    
 
-    public void twBewegen() // Hiermit wird letzendlich der Torwart dazu gebracht sich zu bewegen.
+    public void toMove() // Hiermit wird letzendlich der Torwart dazu gebracht sich zu bewegen.
     {
         MyWorld w = (MyWorld) getWorld();
-        w.twBewegen();
+        w.toMove();
     }
 
-    public Actor getTorwart() // Der Torwart wird zurückgegeben.
+    public Actor getGoalie() // Der Torwart wird zurückgegeben.
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getTorwart();
+        return w.getGoalie();
     }
 
-    public boolean geschossen() // gibt zurück ob sowohl Pfeil als auch der Ball der Powerleiste "geschossen" wurden. Also ob bei beiden die Leertaste gedrückt worden ist.
+    public boolean shot() // gibt zurück ob sowohl Pfeil als auch der Ball der Powerleiste "geschossen" wurden. Also ob bei beiden die Leertaste gedrückt worden ist.
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getGeschossenPfeil() && w.getGeschossenPower();
+        return w.getShotArrow() && w.getShotPower();
     }
 
-    public int getRichtung() // gibt Pfeilrichtung zurück -> in welche Richtung geschossen wird
+    public int getDirection() // gibt Pfeildirection zurück -> in welche direction geschossen wird
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getRichtungPfeil();
+        return w.getDirectionArrow();
     }
 
     public double getPower() // gibt Power zurück -> wie hoch geschossen wird
@@ -100,121 +100,116 @@ public class Ball extends Actor
         return start;
     }
 
-    /** Die elementarste Methode für dieses Spiel.
-     * Ball wird in die durch die Parameter Richtung und Power vorgegebene Richtung bewegt.
-     * 
-     * Es wird zunächst nach der Power unterschieden und danach nach der Richtung.
-     * Diese Methode ist durch längeres ausprobieren und "rumbasteln" entstanden.
-     */
-    public void schiessen(int richtung, double power)
+    
+    public void shoot(int direction, double power)
     {        
         start = true; 
-        twBewegen();
-        setRotation(richtung-90); // Damit der Ball sich in die gewünschte Richtung bewegt ist es nötig die richtung -90 zu rechnen.
+        toMove();
+        setRotation(direction-90); // Damit der Ball sich in die gewünschte direction bewegt ist es nötig die direction -90 zu rechnen.
         if(power<=20)
         {
-            if(richtung>=340 || richtung<=20)
+            if(direction>=340 || direction<=20)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+190; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<340 && richtung>320)
+            else if(direction<340 && direction>320)
             {
                 double p = power*1.5;
                 for(int i = 0; i<p+220; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung>20 && richtung<=40)
+            else if(direction>20 && direction<=40)
             {
                 double p = power*1.5;
                 for(int i = 0; i<p+220; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<=320 && richtung>300)
+            else if(direction<=320 && direction>300)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+290; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
 
             }
-            else if(richtung>40 && richtung<=60)
+            else if(direction>40 && direction<=60)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+290; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung<=300 && richtung>250)
+            else if (direction<=300 && direction>250)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung>60 && richtung<=110)
+            else if (direction>60 && direction<=110)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
@@ -222,108 +217,108 @@ public class Ball extends Actor
         }
         else if (power>20 && power<=40)
         {
-            if(richtung>=340 || richtung<=20)
+            if(direction>=340 || direction<=20)
             {
                 double p = power*2;
                 for(int i = 0; i<p+250; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<340 && richtung>320)
+            else if(direction<340 && direction>320)
             {
                 double p = power*2;
                 for(int i = 0; i<p+270; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung>20 && richtung<=40)
+            else if(direction>20 && direction<=40)
             {
                 double p = power*2;
                 for(int i = 0; i<p+270; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<=320 && richtung>300)
+            else if(direction<=320 && direction>300)
             {
                 double p = power*2.3;
                 for(int i = 0; i<p+300; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
 
             }
-            else if(richtung>40 && richtung<=60)
+            else if(direction>40 && direction<=60)
             {
                 double p = power*2.3;
                 for(int i = 0; i<p+300; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung<=300 && richtung>250)
+            else if (direction<=300 && direction>250)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung>60 && richtung<=110)
+            else if (direction>60 && direction<=110)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
@@ -332,108 +327,108 @@ public class Ball extends Actor
         }
         else if(power>40 && power<=60)
         {
-            if(richtung>=340 || richtung<=20)
+            if(direction>=340 || direction<=20)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+300; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<340 && richtung>320)
+            else if(direction<340 && direction>320)
             {
                 double p = power*1.5;
                 for(int i = 0; i<p+320; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung>20 && richtung<=40)
+            else if(direction>20 && direction<=40)
             {
                 double p = power*1.5;
                 for(int i = 0; i<p+320; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<=320 && richtung>300)
+            else if(direction<=320 && direction>300)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+350; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
 
             }
-            else if(richtung>40 && richtung<=60)
+            else if(direction>40 && direction<=60)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+350; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung<=300 && richtung>250)
+            else if (direction<=300 && direction>250)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung>60 && richtung<=110)
+            else if (direction>60 && direction<=110)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
@@ -441,178 +436,175 @@ public class Ball extends Actor
         }
         else if (power>60)
         {
-            if(richtung>=340 || richtung<=20)
+            if(direction>=340 || direction<=20)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+350; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<340 && richtung>320)
+            else if(direction<340 && direction>320)
             {
                 double p = power*1.5;
                 for(int i = 0; i<p+370; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung>20 && richtung<=40)
+            else if(direction>20 && direction<=40)
             {
                 double p = power*1.5;
                 for(int i = 0; i<p+370; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if(richtung<=320 && richtung>300)
+            else if(direction<=320 && direction>300)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+400; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
 
             }
-            else if(richtung>40 && richtung<=60)
+            else if(direction>40 && direction<=60)
             {
                 double p = power*1.7;
                 for(int i = 0; i<p+400; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung<=300 && richtung>250)
+            else if (direction<=300 && direction>250)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
-            else if (richtung>60 && richtung<=110)
+            else if (direction>60 && direction<=110)
             {
                 double p = power*2;
                 for(int i = 0; i<p+500; i++)
                 {
-                    if(!schussFertig && !gehalten)
+                    if(!shotReady && !held)
                     {
                         move(1);
                         pause(1);
-                        groeße();
-                        faerben();
+                        size();
+                        todye();
 
                     }   
                 }
             }
         }
 
-        schussFertig = true; 
-        faerben();
-        if(tor)
+        shotReady = true; 
+        todye();
+        if(goal)
         {
             Greenfoot.playSound("Jubel.mp3");
         }
         else
         {
             Greenfoot.playSound("Verschossen.mp3");
-            anzahlVerschossen++;
+            numberMissed++;
 
         }
-        schussNr++;
+        shotMiss++;
         pause(1000);
         reset();
-        if(anzahlGetroffen==3)
+        if(numberOfhits==3)
         {
             resetLevel();
-            w.levelErhöhen();
-            w.setLevelPP();
-            w.setLevelAnzeige();
         }
-        else if (anzahlVerschossen==3)
+        else if (numberMissed==3)
         {
             Greenfoot.setWorld(new GameOver());
 
         }
     }
 
-    public void faerben()
+    public void todye()
     {
         MyWorld w = (MyWorld) getWorld();
         if(getX()< 145 || getX()> 555 || getY()<57)
         {  
             // getImage().setTransparency(0); //https://www.greenfoot.org/topics/2002
-            setImage("Ball_rot.png");
+            setImage("Ball_red.png");
             this.getImage().scale(33,33);
-            schussFertig= true;
+            shotReady= true;
 
-            if(schussNr==0)
+            if(shotMiss==0)
             {
                 w.anzeige(1, true);
                 w.anzeige(2, false);
 
             }
-            else if (schussNr==1)
+            else if (shotMiss==1)
             {
                 w.anzeige(11, true);
                 w.anzeige(12, false);
 
             }
-            else if (schussNr==2)
+            else if (shotMiss==2)
             {
                 w.anzeige(21, true);
                 w.anzeige(22, false);
 
             }
-            else if (schussNr==3)
+            else if (shotMiss==3)
             {
                 w.anzeige(31, true);
                 w.anzeige(32, false);
 
             }
-            else if(schussNr ==4)
+            else if(shotMiss ==4)
             {
                 w.anzeige(41, true);
                 w.anzeige(42, false);
@@ -620,27 +612,27 @@ public class Ball extends Actor
             }
             pause(200);
         }
-        else if (getY()<270 && schussFertig && !intersects(getTorwart()))
+        else if (getY()<270 && shotReady && !intersects(getGoalie()))
         {
-            setImage("Ball_gruen.png");
+            setImage("Ball_green.png");
             this.getImage().scale(33,33);
-            tor = true;
-            anzahlGetroffen++;
-            if(schussNr==0)
+            goal = true;
+            numberOfhits++;
+            if(shotMiss==0)
             {
                 w.anzeige(1, false);
                 w.anzeige(2, true);
                 // w.addObject(new Fehlschuss(), 62,363);
                 // w.addObject(new Treffer(), 64, 421);
             }
-            else if (schussNr==1)
+            else if (shotMiss==1)
             {
                 w.anzeige(11, false);
                 w.anzeige(12, true);
                 // w.addObject(new Fehlschuss(), 97,363);
                 // w.addObject(new Treffer(), 99, 421);
             }
-            else if (schussNr==2)
+            else if (shotMiss==2)
             {
                 w.anzeige(21, false);
                 w.anzeige(22, true);
@@ -648,7 +640,7 @@ public class Ball extends Actor
                 // w.addObject(new Treffer(), 134, 421);
 
             }
-            else if (schussNr==3)
+            else if (shotMiss==3)
             {
                 w.anzeige(31, false);
                 w.anzeige(32, true);
@@ -656,7 +648,7 @@ public class Ball extends Actor
                 // w.addObject(new Treffer(), 169, 421);
 
             }
-            else if(schussNr ==4)
+            else if(shotMiss ==4)
             {
                 w.anzeige(41, false);
                 w.anzeige(42, true);
@@ -665,28 +657,28 @@ public class Ball extends Actor
             }
             pause(200);
         }
-        else if (intersects(getTorwart()))
+        else if (intersects(getGoalie()))
         {
             getImage().setTransparency(0);
             this.getImage().scale(33,33);
-            gehalten = true;
+            held = true;
 
             w.gehaltenBild();
-            if(schussNr==0)
+            if(shotMiss==0)
             {
                 w.anzeige(1, true);
                 w.anzeige(2, false);
                 // w.addObject(new Treffer(), 62,363);
                 // w.addObject(new Fehlschuss(), 64, 421);
             }
-            else if (schussNr==1)
+            else if (shotMiss==1)
             {
                 w.anzeige(11, true);
                 w.anzeige(12, false);
                 // w.addObject(new Treffer(), 97,363);
                 // w.addObject(new Fehlschuss(), 99, 421);
             }
-            else if (schussNr==2)
+            else if (shotMiss==2)
             {
                 w.anzeige(21, true);
                 w.anzeige(22, false);
@@ -694,7 +686,7 @@ public class Ball extends Actor
                 // w.addObject(new Fehlschuss(), 134, 421);
 
             }
-            else if (schussNr==3)
+            else if (shotMiss==3)
             {
                 w.anzeige(31, true);
                 w.anzeige(32, false);
@@ -702,7 +694,7 @@ public class Ball extends Actor
                 // w.addObject(new Fehlschuss(), 169, 421);
 
             }
-            else if(schussNr ==4)
+            else if(shotMiss ==4)
             {
                 w.anzeige(41, true);
                 w.anzeige(42, false);
@@ -718,17 +710,17 @@ public class Ball extends Actor
     {
         MyWorld w = (MyWorld) getWorld();
         w.torwartReset();
-        w.pfeilReset();
-        w.powerleisteReset();
-        w.powerLeisteBallReset();
+        w.arrowReset();
+        w.powerbarReset();
+        w.powerBarBallReset();
 
         start = false;
-        tor = false;
+        goal = false;
         setImage("Ball.png");
         setLocation(350, 420);
         this.getImage().scale(57,56);
-        schussFertig = false;
-        gehalten= false;
+        shotReady = false;
+        held= false;
 
     }
 
@@ -736,17 +728,13 @@ public class Ball extends Actor
     {
         MyWorld w = (MyWorld) getWorld();
         reset();
-        schussNr = 0;
-        anzahlVerschossen = 0;
-        anzahlGetroffen = 0;
-        w.anzeigeReset();
+        shotMiss = 0;
+        numberMissed = 0;
+        numberOfhits = 0;
+    
     }
 
-    /**
-     * Move forward by the specified distance.
-     * (Overrides the method in Actor).
-     */
-    @Override
+    
     public void move(int distance)
     {
         move((double)distance);
@@ -801,7 +789,7 @@ public class Ball extends Actor
         return exactY;
     }
 
-    public void groeße() // stellt die Größe des Balles ein
+    public void size() // stellt die Größe des Balles ein
     { 
         if (getX()>140 && getX()<570)
         {

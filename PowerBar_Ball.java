@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PowerBar_Ball extends Powerbar
 {
 
-    private boolean geschossen;
+    private boolean shot;
     private boolean start;
     MyWorld w = (MyWorld) getWorld();
     private int level;
@@ -16,7 +16,7 @@ public class PowerBar_Ball extends Powerbar
     public PowerBar_Ball()
     {
 
-        geschossen = false;
+        shot = false;
         start = false;
         level = 1;
 
@@ -25,22 +25,22 @@ public class PowerBar_Ball extends Powerbar
     public void act() 
     {
 
-        if(getGeschossenPfeil())
+        if(getShotArrow())
         {
             bewegen();
             
         }
-        if(geschossen)
+        if(shot)
         {
             getImage().setTransparency(0);
             powerLeisteEntfernen();
         }
     }
 
-    public boolean getGeschossenPfeil()
+    public boolean getShotArrow()
     {
         MyWorld w = (MyWorld) getWorld();
-        return w.getGeschossenPfeil();
+        return w.getShotArrow();
 
     }
     
@@ -73,10 +73,10 @@ public class PowerBar_Ball extends Powerbar
             start = true;
         }
         int i = 0;
-        if(!geschossen)
+        if(!shot)
         {
             i = 1;
-            geschossen = Greenfoot.isKeyDown("space");
+            shot = Greenfoot.isKeyDown("space");
         }
         
         setLocation(getX()+i, getY());
@@ -88,10 +88,10 @@ public class PowerBar_Ball extends Powerbar
     public void bewegen_links()
     {
         int i = 0;
-        if(!geschossen)
+        if(!shot)
         {
             i = 1;
-            geschossen = Greenfoot.isKeyDown("space");
+            shot = Greenfoot.isKeyDown("space");
         }
         setLocation(getX()-i, getY());
         pause(11-level);
@@ -107,14 +107,14 @@ public class PowerBar_Ball extends Powerbar
 
     public boolean getGeschossen()
     {
-        return geschossen;
+        return shot;
     }
     
     public void reset()
     {
         setLocation(584, 362);
         getImage().setTransparency(255);
-        geschossen = false;
+        shot = false;
         start = false;
         
     }

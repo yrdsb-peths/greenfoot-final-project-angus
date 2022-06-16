@@ -22,14 +22,14 @@ public class Score_Ball extends Score
     
     public void treffer()
     {
-        setImage("Ball_gruen.png");
+        setImage("Ball_green.png");
         this.getImage().scale(31,31);
         getImage().setTransparency(255);
     }
     
-    public void fehlschuss()
+    public void miss()
     {
-        setImage("Ball_rot.png");
+        setImage("Ball_red.png");
         this.getImage().scale(31,31);
         getImage().setTransparency(255);
     }

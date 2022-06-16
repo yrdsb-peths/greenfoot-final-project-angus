@@ -7,7 +7,7 @@ public class MyWorld extends World
 
     Arrow arrow = new Arrow();
     Powerbar powerbar = new Powerbar();
-    PowerBar_Ball powerLeiste_Ball = new PowerBar_Ball();
+    PowerBar_Ball powerBar_Ball = new PowerBar_Ball();
     Ball ball = new Ball();
     Goalie goalie = new Goalie();
 
@@ -23,10 +23,7 @@ public class MyWorld extends World
     Score_Ball anzeige41 = new Score_Ball();
     Score_Ball anzeige42 = new Score_Ball();
 
-    // Dieses Objekt zeigt das aktuelle Level an.
-    Level leveldisplay = new Level();
-
-    // Hier wird die Hintergrundmusik in einer Variable deklariert und initialisiert.
+    
     private GreenfootSound backgroundMusic = new GreenfootSound("Stadion.mp3"); //Quelle: https://www.greenfoot.org/topics/1649    Quelle Sound: http://www.hoerspielbox.de/download-sound/?timestamp=85&title=Stadionatmo%20mit%20jubelenden%20Massen%20und%20Beschallung&cat=Atmosphären%20Stadt%20&permalink=http://www.hoerspielbox.de/im-fussballstadion-vor-anpfiff/&file=1-1-10026.mp3&soundlink=http://archive.hoerspielbox.de/1-1-10026.mp3
 
     public MyWorld()
@@ -47,7 +44,7 @@ public class MyWorld extends World
         addObject(ball, 350, 420);
         addObject(arrow, 350, 355);
         addObject(powerbar, 620, 375);
-        addObject(powerLeiste_Ball, 584, 362);
+        addObject(powerBar_Ball, 584, 362);
 
         //score display
         addObject(score, 130,400);
@@ -62,8 +59,6 @@ public class MyWorld extends World
         addObject(anzeige41,202,363);
         addObject(anzeige42,204, 421);
 
-        //Levelanzeige
-        addObject(leveldisplay, 625, 190);
     }
 
     public void anzeigeReset() // Diese Methode stellt die Tor/Fehler Anzeige wieder zurück, bei beginn eines neuen Levels.
@@ -80,50 +75,27 @@ public class MyWorld extends World
         anzeige42.reset();
     }
 
-    public int getLevel() // gibt das aktuelle Level zurück.
-    {
-        return level;
-    }
+    
 
-    public void setLevelAnzeige() // ändert die Anzeige des Levels auf das aktuelle Level.
+    public int getDirectionArrow() 
     {
-        leveldisplay.picture(level);
-    }
-
-    public void levelErhöhen() // Erhöht das Level um 1 und öffnet bei Gewinn des Spiels den Win-Screen
-    {
-        level++;  
-        if(level==11)
-        {
-            Greenfoot.setWorld(new Win());
-        }
-    }
-
-    public void setLevelPP() // Hier werden bei den Objekten der Klassen Pfeil und PowerLeiste_Ball die Level auf das aktuelle aktualisiert.
-    {
-        arrow.setLevel(level);
-        powerLeiste_Ball.setLevel(level);
-    }
-
-    public int getRichtungPfeil() 
-    {
-        return arrow.getRichtung();
+        return arrow.getRotation();
 
     }
 
-    public boolean getGeschossenPfeil()
+    public boolean getShotArrow()
     {
-        return arrow.getGeschossen();
+        return arrow.getShot();
     }
 
     public double getPower() //liefert die Power des Schusses von dem Objekt der Klasse PowerLeiste_Ball.
     {
-        return powerLeiste_Ball.getPower();
+        return powerBar_Ball.getPower();
     }
 
-    public boolean getGeschossenPower() // gibt true zurück, wenn der Ball der Powerleiste "geschossen" wurde. Also wenn die Leertaste für den Ball der Powerleiste gedrückt wurde.
+    public boolean getShotPower() // gibt true zurück, wenn der Ball der Powerleiste "geschossen" wurde. Also wenn die Leertaste für den Ball der Powerleiste gedrückt wurde.
     {
-        return powerLeiste_Ball.getGeschossen();
+        return powerBar_Ball.getGeschossen();
     }
 
     public boolean startTorwart() //liefert dem Objekt der Klasse Torwart, ob der Ball bereits losfliegt.
@@ -133,7 +105,7 @@ public class MyWorld extends World
 
     public void powerLeisteEntfernen() // Hierdurch verschwindet die Powerleiste
     {
-        powerbar.verschwinden();
+        powerbar.disappear();
     }
 
     public boolean getStartTorwart() // gibt zurück ob der Torwart angefangen hat zu parieren.
@@ -141,7 +113,7 @@ public class MyWorld extends World
         return goalie.getStart();
     }
 
-    public void twBewegen() // Der Torwart bewegt sich.
+    public void toMove() // Der Torwart bewegt sich.
     {
         goalie.act2();
     }
@@ -161,19 +133,19 @@ public class MyWorld extends World
         goalie.reset();
     }
 
-    public void pfeilReset() // Der Pfeil wird zurückgesetzt in den Anfangszustand.
+    public void arrowReset() // Der Pfeil wird zurückgesetzt in den Anfangszustand.
     {
         arrow.reset();
     }
 
-    public void powerleisteReset() // Die Powerleiste wird zurückgesetzt in den Anfangszustand.
+    public void powerbarReset() // Die Powerleiste wird zurückgesetzt in den Anfangszustand.
     {
         powerbar.reset();
     }
 
-    public void powerLeisteBallReset() //Der Ball der Powerleiste wird zurückgesetzt in den Anfangszustand.
+    public void powerBarBallReset() //Der Ball der Powerleiste wird zurückgesetzt in den Anfangszustand.
     {
-        powerLeiste_Ball.reset();
+        powerBar_Ball.reset();
     }
 
     public void anzeige(int nummer, boolean tor) // Methode stellt die Tor/Fehler Anzeige je nach Fall ein.
@@ -186,7 +158,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige01.fehlschuss();
+                anzeige01.miss();
             }
         }
         else if (nummer == 2)
@@ -197,7 +169,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige02.fehlschuss();
+                anzeige02.miss();
             }
         }
         else if (nummer == 11)
@@ -208,7 +180,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige11.fehlschuss();
+                anzeige11.miss();
             }
         }
         else if (nummer == 12)
@@ -219,7 +191,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige12.fehlschuss();
+                anzeige12.miss();
             }
         }
         else if (nummer == 21)
@@ -230,7 +202,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige21.fehlschuss();
+                anzeige21.miss();
             }
         }
         else if (nummer == 22)
@@ -241,7 +213,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige22.fehlschuss();
+                anzeige22.miss();
             }
         }
         else if (nummer == 31)
@@ -252,7 +224,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige31.fehlschuss();
+                anzeige31.miss();
             }
         }
         else if (nummer == 32)
@@ -263,7 +235,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige32.fehlschuss();
+                anzeige32.miss();
             }
         }
         else if (nummer == 41)
@@ -274,7 +246,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige41.fehlschuss();
+                anzeige41.miss();
             }
         }
         else if (nummer == 42)
@@ -285,7 +257,7 @@ public class MyWorld extends World
             }
             else
             {
-                anzeige42.fehlschuss();
+                anzeige42.miss();
             }
         }
     }
